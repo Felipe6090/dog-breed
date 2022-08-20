@@ -12,7 +12,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@helpers': path.resolve(__dirname, 'src/helpers'),
       '@routes': path.resolve(__dirname, 'src/routes'),
-      '@graphql': path.resolve(__dirname, 'src/api'),
+      '@api': path.resolve(__dirname, 'src/api'),
       '@types': path.resolve(__dirname, 'src/types'),
       '@assets': path.resolve(__dirname, 'src/assets')
     }

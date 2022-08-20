@@ -7,12 +7,12 @@ export default function Login() {
   return (
     <S.MainDiv>
       <S.Aside>
-        <StyledText dark fontSize={36} fontFamily="Roboto" fontWeight="bold">
-          Cachoro
+        <StyledText fontSize={36} fontFamily="Poppins" fontWeight="bold">
+          Veja doguinhos fofinhos!
         </StyledText>
 
-        <StyledText dark fontSize={36} fontFamily="Roboto" fontWeight="bold">
-          Cachoro
+        <StyledText fontSize={24} fontFamily="Roboto" fontWeight="regular">
+          Aprecie e compartilhe seus pets com outras pessoas
         </StyledText>
       </S.Aside>
 

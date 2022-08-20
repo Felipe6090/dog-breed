@@ -6,7 +6,9 @@ export const MainDiv = styled.div`
 
   align-items: center;
 
-  justify-content: space-around;
+  justify-content: center;
 
   width: 50%;
+
+  gap: 40px;
 `

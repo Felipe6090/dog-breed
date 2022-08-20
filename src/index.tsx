@@ -3,18 +3,19 @@ import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
 import App from './App'
 
-import './reset.css'
-
 import theme from './styles/themes'
 
 import { ThemeProvider } from 'styled-components'
+import { AuthProvider } from '@contexts/auth'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>
 )
 
