@@ -17,7 +17,6 @@ interface ISignInProps {
 }
 
 interface IAuthContextProps {
-  token: string | null
   signIn: ({ email }: ISignInProps) => Promise<void>
   signOut: () => Promise<void>
 }
@@ -36,16 +35,14 @@ export const AuthContext = createContext<IAuthContextProps>(
 )
 
 const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
-  const [token, setToken] = useState<string | null>(null)
-
   const tokenKey = '@dog_breed:token'
 
   const signIn = useCallback(async ({ email }: ISignInProps) => {
     await api
       .post('/register', { email })
       .then(res => {
-        setToken(res.data?.user?._id)
-        localStorage.setItem(tokenKey, res.data?.user?._id)
+        console.log(res.data?.user)
+        localStorage.setItem(tokenKey, res.data?.user?.token)
       })
       .catch(err => {
         throw new Error(err)
@@ -53,24 +50,16 @@ const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
   }, [])
 
   const signOut = useCallback(async () => {
-    setToken(null)
     localStorage.clear()
   }, [])
 
-  async function verifyStorage() {
-    const storageToken = localStorage.getItem(tokenKey)
-
-    setToken(storageToken)
-  }
-
-  useEffect(() => {
-    verifyStorage()
-  }, [])
+  // useEffect(() => {
+  //   verifyStorage()
+  // }, [])
 
   return (
     <AuthContext.Provider
       value={{
-        token,
         signIn,
         signOut
       }}

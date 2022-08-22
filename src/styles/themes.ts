@@ -3,6 +3,8 @@ export default {
     white: '#fff',
     black: '#0B0B0B',
     silver_light: '#A8A8B3',
-    dark_blue: '#835AFD'
+    silver_bold: '#E2E2E2',
+    dark_blue: '#835AFD',
+    purple: '#835AFD'
   }
 }

@@ -1,16 +1,19 @@
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import Logo from '@components/atoms/Logo'
 import { DefaultButton } from '@components/atoms/buttons'
 import { DefaultTextInput } from '@components/atoms/inputs'
 
 import EnterIcon from '@assets/login/enter_icon.png'
 
-import Logo from '@components/atoms/Logo'
+import { useAuth } from '@contexts/auth'
 
 import * as S from './styles'
-import { useAuth } from '@contexts/auth'
-import { useState } from 'react'
 
 export default function LoginComponent() {
   const { signIn } = useAuth()
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
 
@@ -24,7 +27,11 @@ export default function LoginComponent() {
         onChange={e => setEmail(e.target.value)}
       />
 
-      <DefaultButton onClick={() => signIn({ email })}>
+      <DefaultButton
+        onClick={() => {
+          signIn({ email }).then(() => navigate('dogs-list'))
+        }}
+      >
         <img src={EnterIcon} alt="Icone de Login" />
         Fazer Login
       </DefaultButton>
