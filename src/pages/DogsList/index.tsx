@@ -1,5 +1,7 @@
 import Header from '@components/atoms/Header'
 
+import * as S from './styles'
+
 export default function DogsList() {
-  return <Header />
+  return <S.ListBody></S.ListBody>
 }
